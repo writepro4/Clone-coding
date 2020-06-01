@@ -1,0 +1,18 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writepro4/-Clone-coding.git"
+  },
+  "author": "wonho",
+  "bugs": {
+    "url": "https://github.com/writepro4/-Clone-coding/issues"
+  },
+  "homepage": "https://github.com/writepro4/-Clone-coding#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
