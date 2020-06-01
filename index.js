@@ -8,19 +8,27 @@ const app = express()
 const PORT = 4000
 
 //콜백 메소드
-const handleListening = () => console.log(`${PORT}가 열렸어요.`)
+const handleListening = () => console.log(`${PORT}가 열렸어요`)
 
-
-const handleHome = (req, res) => {
-    console.log("hi home")
-    console.log(req)
-    res.send(`hellow home`)
-}
+const handleHome = (req, res) => res.send(`hellow home`)
 
 const Profile = (req, res) => res.send("Profile 실행")
 
+//미들웨어 함수엔 next를 인자로 주고
+//마지막 함수일 경우엔 next를 추가하지 않는다.
+const middleHome = (req, res, next) => {
+    console.log("some between")
+    next()
+}
+
+//모든 경로 라우터에 미들웨어를 넣고 싶을 경우 app.use를 사용
+//미들웨어는 중간에 로그인체크,log생성,ip주소 체크 등을 하기 위해 사용
+//미들웨어 함수는 아래에 있는 라우터들에만 적용됨. 순서 유의할것
+app.use(middleHome)
 
 //앱 get 주소 url, 실행할 함수
+//맨처음 주소로 들어가면 / 이 경로가 먼저 실행됨.
+//
 app.get("/", handleHome)
 
 app.get("/profile", Profile)
