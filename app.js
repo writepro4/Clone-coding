@@ -4,7 +4,11 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 //함수,변수만 가져오고 싶을때는 {변수,함수} 요런식으로 사용함.
-import {userRouter} from "./router";
+// import {userRouter} from "./Routers/userRouter";
+
+import userRouter from "./Routers/userRouter";
+import videoRouter from "./Routers/videoRouter";
+import globalRouter from "./Routers/globalRouter";
 
 //예전 버전
 // const express = require('express')
@@ -14,11 +18,11 @@ const app = express()
 const PORT = 4000
 
 //콜백 메소드
-const handleListening = () => console.log(`${PORT}가 열렸어요`)
+// const handleListening = () => console.log(`${PORT}가 열렸어요`)
 
-const handleHome = (req, res) => res.send(`hellow home`)
+// const handleHome = (req, res) => res.send(`hellow home`)
 
-const Profile = (req, res) => res.send("Profile 실행")
+// const Profile = (req, res) => res.send("Profile 실행")
 
 //미들웨어 함수엔 next를 인자로 주고
 //마지막 함수일 경우엔 next를 추가하지 않는다.
@@ -51,8 +55,11 @@ const middleware = (req, res, next) => {
 
 //앱 get 주소 url, 실행할 함수
 //맨처음 주소로 들어가면 / 이 경로가 먼저 실행됨.
-app.get("/", handleHome)
+// app.get("/", handleHome)
+
+app.use("/", globalRouter)
 app.use("/user", userRouter)
+app.use("/video", videoRouter)
 
 //listen 라우터 생성
 // app.listen(PORT, handleListening)
