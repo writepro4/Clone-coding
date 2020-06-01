@@ -14,5 +14,8 @@
   "homepage": "https://github.com/writepro4/-Clone-coding#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
