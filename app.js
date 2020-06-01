@@ -3,6 +3,8 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+//함수,변수만 가져오고 싶을때는 {변수,함수} 요런식으로 사용함.
+import {userRouter} from "./router";
 
 //예전 버전
 // const express = require('express')
@@ -50,8 +52,10 @@ const middleware = (req, res, next) => {
 //앱 get 주소 url, 실행할 함수
 //맨처음 주소로 들어가면 / 이 경로가 먼저 실행됨.
 app.get("/", handleHome)
-
-app.get("/profile", Profile)
+app.use("/user", userRouter)
 
 //listen 라우터 생성
-app.listen(PORT, handleListening)
+// app.listen(PORT, handleListening)
+
+//내 파일을 호출할때 app object를 넘기겠다는 의미
+export default app;
