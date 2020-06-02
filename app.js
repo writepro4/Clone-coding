@@ -16,6 +16,8 @@ const app = express()
 
 const PORT = 4000
 
+//view 엔진을 pug로 교체함.
+app.set("view engine", "pug");
 
 //cookie를 사용하기 위한 미들웨어
 app.use(cookieParser())

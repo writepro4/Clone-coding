@@ -7,11 +7,9 @@ import {
     changePassword
 } from "../controller/userController";
 
-const userRouter = express.Router();
 
 const userRouter = express.Router();
 
-export default userRouter;
 
 userRouter.get(routes.users, users);
 userRouter.get(routes.userDetail, userDetail);
