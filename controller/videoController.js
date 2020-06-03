@@ -1,8 +1,8 @@
 //첫번째 인자는 템플릿, 두번째는 정보 객체
-export const home = (req, res) =>
-    res.render("home", { pageTitle: "Home" });
-// export const search = (req, res) =>
-//     res.render("search", { pageTitle: "Search" });
+import { videos } from "../db";
+export const home = (req, res) => {
+    res.render("home", { pageTitle: "Home", videos });
+};
 
 export const search = (req, res) => {
     const {
