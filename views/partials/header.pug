@@ -1,9 +1,11 @@
 header.header
     .header__column
-        i.fab.fa-youtube
+        a(href=routes.home)
+            i.fab.fa-youtube
     .header__column
         ul
             li
-                a(href="#") Join
+                //pug에선 따로 import하지 않아도 바로 사용 가능.
+                a(href=routes.join) Join
             li
-                a(href="#") Log In
+                a(href=routes.login) Log In
